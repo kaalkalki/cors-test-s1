@@ -21,8 +21,8 @@ app.get('/hello', function (req, res) {
     res.json({ "hello": "hello" });
 });
 app.use(function (req, res, next) {
-    res.status(404).json({"reason":"No resource exist"});
+    res.status(404).json({ "reason": "No resource exist" });
 });
-var server = app.listen(3000, 'localhost', function () {
+var server = app.listen(3000, function () {
     console.log(`${server.address().address} :${server.address().port}`);
 });
