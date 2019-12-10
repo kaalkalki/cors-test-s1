@@ -3,6 +3,8 @@
 var app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
+app.set('port', (process.env.PORT || 5000));
 //app.use(cors());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,6 +25,6 @@ app.get('/hello', function (req, res) {
 app.use(function (req, res, next) {
     res.status(404).json({ "reason": "No resource exist" });
 });
-var server = app.listen(3000, function () {
+var server = app.listen(app.get('port'), function () {
     console.log(`${server.address().address} :${server.address().port}`);
 });
